@@ -50,6 +50,7 @@ public class ImageController {
     public String showImage(@PathVariable("id") Integer id, @PathVariable("title") String title,Model model) {
         Image image = imageService.getImage(id);
         model.addAttribute("image", image);
+        model.addAttribute("comments", image.getComments());
         model.addAttribute("tags", image.getTags());
         return "images/image";
     }
